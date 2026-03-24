@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.venv/
+venv/
+.env
+
+# Data/artifacts
+/data/chroma/
+/data/index/
+
+# Local/private corpora and run records (do not publish)
+/data/raw/*
+!/data/raw/.gitkeep
+
+/data/runs/*
+!/data/runs/.gitkeep
+
+/data/badcases/*
+!/data/badcases/.gitkeep
+
+# Optional local background image
+/static/bg.jpg
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
