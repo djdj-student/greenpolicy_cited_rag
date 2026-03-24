@@ -15,7 +15,7 @@ from policyhub.settings import get_settings
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build/refresh GreenPolicyHub index")
+    parser = argparse.ArgumentParser(description="Build/refresh LvZhengTong index")
     parser.add_argument(
         "--rebuild",
         action="store_true",

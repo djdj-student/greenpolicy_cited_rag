@@ -30,7 +30,7 @@ def load_jsonl(path: Path) -> list[dict]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run RAGAS eval on GreenPolicyHub")
+    parser = argparse.ArgumentParser(description="Run RAGAS eval on LvZhengTong")
     parser.add_argument(
         "--dataset",
         type=str,

@@ -1,6 +1,6 @@
 # greenpolicy_cited_rag
 
-GreenPolicyHub is a **citation-first** (quote-grounded) Retrieval-Augmented Generation (RAG) demo for Chinese environmental policy text.
+LvZhengTong is a **citation-first** (quote-grounded) Retrieval-Augmented Generation (RAG) demo for Chinese environmental policy text.
 It focuses on a practical constraint that matters in compliance and policy research:
 
 > **No citation, no claim.** Answers must be verifiable against quoted source passages.

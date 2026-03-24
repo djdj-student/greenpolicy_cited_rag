@@ -230,9 +230,9 @@ def _render_agent_process(diagnostics: dict | None) -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title="GreenPolicyHub", layout="centered", initial_sidebar_state="collapsed")
+    st.set_page_config(page_title="绿政通", layout="centered", initial_sidebar_state="collapsed")
     _inject_background_image(Path(__file__).parent / "static" / "bg.jpg")
-    st.markdown('<h1 class="gh-title">GreenPolicyHub — 环保政策知识库</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="gh-title">绿政通 — 环保政策智能问答与变更追踪系统</h1>', unsafe_allow_html=True)
     # 注意：索引/embedding 初始化会慢（尤其首次下载 bge-m3），这里延迟到用户点击“提问”再做。
 
     settings = get_settings()
