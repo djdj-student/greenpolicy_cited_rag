@@ -7,6 +7,19 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 
+def _project_root() -> Path:
+    # policyhub/ is a top-level package under the repo root
+    return Path(__file__).resolve().parents[1]
+
+
+def _resolve_dir(value: str, default_rel: str) -> Path:
+    raw = (value or default_rel).strip()
+    p = Path(raw)
+    if p.is_absolute():
+        return p.resolve()
+    return (_project_root() / p).resolve()
+
+
 @dataclass(frozen=True)
 class PolicyHubSettings:
     llm_provider: str
@@ -72,11 +85,11 @@ def get_settings() -> PolicyHubSettings:
     embedding_model_name = os.getenv("EMBEDDING_MODEL_NAME", "BAAI/bge-m3").strip()
     embedding_device = os.getenv("EMBEDDING_DEVICE", "auto").strip().lower()
 
-    chroma_persist_dir = Path(os.getenv("CHROMA_PERSIST_DIR", "./data/chroma")).resolve()
+    chroma_persist_dir = _resolve_dir(os.getenv("CHROMA_PERSIST_DIR", ""), "./data/chroma")
     chroma_collection = os.getenv("CHROMA_COLLECTION", "green_policyhub").strip()
 
-    raw_docs_dir = Path(os.getenv("RAW_DOCS_DIR", "./data/raw")).resolve()
-    index_dir = Path(os.getenv("INDEX_DIR", "./data/index")).resolve()
+    raw_docs_dir = _resolve_dir(os.getenv("RAW_DOCS_DIR", ""), "./data/raw")
+    index_dir = _resolve_dir(os.getenv("INDEX_DIR", ""), "./data/index")
 
     return PolicyHubSettings(
         llm_provider=llm_provider,

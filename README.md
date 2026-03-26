@@ -1,6 +1,6 @@
 # greenpolicy_cited_rag
 
-LvZhengTong is a **citation-first** (quote-grounded) Retrieval-Augmented Generation (RAG) demo for Chinese environmental policy text.
+GreenPolicyHub is a **citation-first** (quote-grounded) Retrieval-Augmented Generation (RAG) demo for Chinese environmental policy text.
 It focuses on a practical constraint that matters in compliance and policy research:
 
 > **No citation, no claim.** Answers must be verifiable against quoted source passages.
@@ -250,11 +250,19 @@ Suggested workflow:
 
 The repository includes optional evaluation dependencies in `requirements-eval.txt`.
 
-You can add your own evaluation set, for example:
+Install them (recommended in a separate venv):
 
-- `data/eval/questions.jsonl`
+- `pip install -r requirements-eval.txt`
 
-Then create a script under `scripts/` to compute metrics such as:
+Prepare an evaluation set as JSONL, each line like:
+
+- `{ "question": "...", "ground_truth": "..." }` (ground_truth is optional)
+
+Then run the included evaluator:
+
+- `python scripts/run_eval.py --dataset data/eval/sample.jsonl`
+
+It currently evaluates Direct RAG only and prints aggregated metrics such as:
 
 - faithfulness
 - answer relevancy
