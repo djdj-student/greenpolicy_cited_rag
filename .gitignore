@@ -10,6 +10,7 @@ venv/
 # Data/artifacts
 /data/chroma/
 /data/index/
+/scripts/data/
 
 # Local/private corpora and run records (do not publish)
 /data/raw/*
